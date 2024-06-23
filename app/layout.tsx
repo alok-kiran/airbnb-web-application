@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Nunito } from 'next/font/google'
 import "./globals.css";
+import Navbar from "@/app/components/navbar/Navbar";
+import { useEffect, useState } from "react";
 
 
 export const metadata: Metadata = {
@@ -17,12 +19,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
+      <Navbar />
       <body className={font.className}>{children}</body>
-      <div className=" flex items-center justify-center">
-        <p className=" text-3xl">fasdggdrg</p>
-      </div>
     </html>
   );
 }
