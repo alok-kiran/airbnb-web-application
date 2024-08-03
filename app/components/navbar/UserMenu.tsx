@@ -22,7 +22,6 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({
   currentUser
 }) => {
-  console.log(currentUser);
   const router = useRouter();
 
   const loginModal = useLoginModal();
