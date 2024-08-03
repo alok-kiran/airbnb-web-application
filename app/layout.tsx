@@ -1,8 +1,12 @@
+
 import type { Metadata } from "next";
 import { Nunito } from 'next/font/google'
 import "./globals.css";
 import Navbar from "@/app/components/navbar/Navbar";
 import { useEffect, useState } from "react";
+import ClientOnly from "./components/ClientOnly";
+import Modal from "./components/modals/Modal";
+import RegisterModal from "./components/modals/RegisterModal";
 
 
 export const metadata: Metadata = {
@@ -23,7 +27,18 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Navbar />
+      <ClientOnly>
+        <Navbar />
+        <RegisterModal 
+          // isOpen={true}
+          // onClose={() => console.log('closed')}
+          // onSubmit={() => console.log('submitted')}
+          // title="Register"
+          // body={<div>Register Body</div>}
+          // actionLabel="Register"
+          // footer={<div>Footer</div>}
+        />
+      </ClientOnly>
       <body className={font.className}>{children}</body>
     </html>
   );

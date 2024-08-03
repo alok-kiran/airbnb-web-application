@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 // interface UserMenuProps {
 //   currentUser?: SafeUser | null
@@ -23,7 +24,7 @@ const UserMenu: React.FC<any> = ({
   const router = useRouter();
 
   // const loginModal = useLoginModal();
-  // const registerModal = useRegisterModal();
+  const registerModal = useRegisterModal();
   // const rentModal = useRentModal();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -136,7 +137,7 @@ const UserMenu: React.FC<any> = ({
                 />
                 <MenuItem 
                   label="Sign up" 
-                  onClick={() => {}}
+                  onClick={registerModal.onOpen}
                 />
               </>
             )}
