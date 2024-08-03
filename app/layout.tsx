@@ -3,13 +3,12 @@ import type { Metadata } from "next";
 import { Nunito } from 'next/font/google'
 import "./globals.css";
 import Navbar from "@/app/components/navbar/Navbar";
-import { useEffect, useState } from "react";
 import ClientOnly from "./components/ClientOnly";
-import Modal from "./components/modals/Modal";
 import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
+import RentModal from "./components/modals/RentModal";
 
 
 export const metadata: Metadata = {
@@ -33,10 +32,11 @@ export default async function RootLayout({
       <ClientOnly>
         <ToasterProvider />
         <Navbar currentUser={currentUser}/>
+        <RentModal />  
         <RegisterModal />
         <LoginModal />
       </ClientOnly>
-      <body className={font.className}>{children}</body>
+      <body className="pb-20 pt-28">{children}</body>
     </html>
   );
 }
